@@ -31,7 +31,7 @@ Building off an old collaborative project, this will be an interactive database 
 
 ### **_Getting Started_**
 
-#### ** A trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/AaxH1E0d/hangman). A ERD and CHD can be found [here]https://drive.google.com/file/d/1OPWeFM3jVb9CKj4MZVbxj0s6hNuPZQh_/view?usp=sharing. The project was deployed and can be viewed [here]**
+#### ** A trello board was used to keep track of development progress and can be viewed [here](https://trello.com/invite/b/WlFBvX9n/f196c4886bb0e935149e7bbfb559cd0f/childerns-books). A ERD and CHD can be found [here]https://drive.google.com/file/d/1OPWeFM3jVb9CKj4MZVbxj0s6hNuPZQh_/view?usp=sharing. The project was deployed and can be viewed [here]**
 
 ---
 
