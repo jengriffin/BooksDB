@@ -9,5 +9,8 @@ router.get('/books/:id', controllers.getBookId)
 router.put('/books/:id', controllers.updateBook)
 router.delete('/books/:id', controllers.deleteBook)
 router.get('/authors', controllers.getAllAuthors)
+router.get('/authors/:id', controllers.getAuthorId)
+router.put('/authors/:id', controllers.updateAuthor)
+router.delete('/authors/:id', controllers.deleteAuthor)
 
 module.exports = router

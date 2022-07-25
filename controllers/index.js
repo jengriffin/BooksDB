@@ -69,12 +69,50 @@ const getAllAuthors = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+const getAuthorId = async (req, res) => {
+  try {
+    const { id } = req.params
+    const author = await Author.findById(id)
+    if (author) {
+      return res.status(200).json({ author })
+    }
+    return res.status(404).send('Author with the specified ID does not exists')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 
+const updateAuthor = async (req, res) => {
+  try {
+    const author = await Author.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+    res.status(200).json(author)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const deleteAuthor = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Author.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Author deleted')
+    }
+    throw new Error('Author not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 module.exports = {
   createBook,
   getAllAuthors,
   getAllBooks,
   updateBook,
   getBookId,
-  deleteBook
+  deleteBook,
+  getAuthorId,
+  updateAuthor,
+  deleteAuthor
 }
