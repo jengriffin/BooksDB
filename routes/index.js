@@ -7,6 +7,7 @@ router.post('/books', controllers.createBook)
 router.get('/books', controllers.getAllBooks)
 router.get('/books/:id', controllers.getBookId)
 router.put('/books/:id', controllers.updateBook)
+router.delete('/books/:id', controllers.deleteBook)
 router.get('/authors', controllers.getAllAuthors)
 
 module.exports = router

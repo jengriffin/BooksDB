@@ -47,6 +47,19 @@ const updateBook = async (req, res) => {
   }
 }
 
+const deleteBook = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Book.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Book deleted')
+    }
+    throw new Error('Book not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 //Author CRUD
 const getAllAuthors = async (req, res) => {
   try {
@@ -62,5 +75,6 @@ module.exports = {
   getAllAuthors,
   getAllBooks,
   updateBook,
-  getBookId
+  getBookId,
+  deleteBook
 }
