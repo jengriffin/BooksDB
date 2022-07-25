@@ -27,7 +27,7 @@ const createBook = async (req, res) => {
 const getAllAuthors = async (req, res) => {
   try {
     const authors = await Author.find()
-    return res.status(200).json({ plants })
+    return res.status(200).json({ authors })
   } catch (error) {
     return res.status(500).send(error.message)
   }

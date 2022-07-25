@@ -4,8 +4,8 @@ const Schema = mongoose.Schema
 const Author = new Schema(
   {
     name: { type: String, required: true },
-    description: { type: String, required: true },
-    image: { type: String }
+    books: { type: String, required: true },
+    bio: { type: String }
   },
   { timestamps: true }
 )
