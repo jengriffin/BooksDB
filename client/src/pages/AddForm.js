@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function AddForm() {
-  const [issues, setIssues] = useState([])
+const AddForm = () => {
+  const [book, setBook] = useState([])
   const initialState = {
     title: '',
     author: '',
@@ -11,52 +11,69 @@ function AddForm() {
 
   const [formState, setFormState] = useState(initialState)
 
+  useEffect(() => {
+    const getBooks = async () => {
+      try {
+        let res = await axios.get('http://localhost:3001/api/books')
+        setBook(res.data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getBooks()
+  }, [])
+
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    let res = await axios.post('http://localhost:3001/api/books', formState)
+    console.log(res)
+    setFormState(initialState)
+  }
   return (
     <div className="Form">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1>Add a Book!</h1>
         <label htmlFor="title">Title:</label>
         <input
           type="text"
           id="title"
           onChange={handleChange}
-          value={formState.subject}
+          value={formState.title}
         />
         <label htmlFor="author">Author:</label>
         <input
           type="text"
           id="author"
           onChange={handleChange}
-          value={formState.subject}
+          value={formState.author}
         />
         <label htmlFor="image">Image HTML:</label>
         <input
           type="text"
           id="image"
           onChange={handleChange}
-          value={formState.subject}
+          value={formState.image}
         />
-        <label htmlFor="desription"></label>
+        {/* <label htmlFor="desription"></label>
         <textarea
           id="message"
           cols="30"
           rows="10"
           onChange={handleChange}
-          value={formState.message}
-        ></textarea>
+          value={formState.desription}
+        ></textarea> */}
         <button type="submit">Send</button>
       </form>
-      {/* <h1>Add a Book:</h1>
-      {book.map((newBook) => (
-        <div key={newBook._id}>
-          <h3>Title: {newBook.type}</h3>
-          <p>Author: {newBook.subject}</p>
-          <p>Image: {newBook.message}</p>
+      {book.map((book) => (
+        <div key={book._id}>
+          <h3>Title: {book.title}</h3>
+          <p>Author: {book.author}</p>
+          <p>Image: {book.image}</p>
         </div>
-      ))} */}
+      ))}
     </div>
   )
 }
