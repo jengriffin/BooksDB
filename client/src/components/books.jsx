@@ -8,6 +8,9 @@ const BooksCard = (props) => {
     <div className="info-wrapper flex-row">
       <h3>{props.title}</h3>
     </div>
+    <div>
+      {props.author}
+    </div>
   </div>
     
   )
