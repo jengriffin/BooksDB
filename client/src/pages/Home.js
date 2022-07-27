@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import BooksCard from '../components/books'
+import AddForm from './AddForm'
 const Home = () => {
   const [books, setBooks] = useState([])
 
@@ -21,6 +22,9 @@ const Home = () => {
   return (
     <div className="books">
       <h1>Books</h1>
+      <h2>
+        <Link to={'./AddForm'}>Add a book!</Link>
+      </h2>
       <section className="container-grid">
         {books.map((book) => (
           // {/* <Link to={`/view/games/${genre.id}`} key={genre.id}> */}
