@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
+import BooksCard from '../components/books'
 const Home = () => {
   const [books, setBooks] = useState([])
 
   useEffect(() => {
     const getBooks = async () => {
-      const response = await axios.get(
-        `https://api.rawg.io/api/genres?key=${API_KEY}`
-      )
-      setBooks(response.data.results)
+      try {
+        const response = await axios.get(`http://localhost:3001/api/books`)
+        setBooks(response.data)
+        console.log(response)
+      } catch (e) {
+        console.error('Try again')
+      }
     }
     getBooks()
   }, [])
@@ -19,16 +22,17 @@ const Home = () => {
     <div className="books">
       <h1>Books</h1>
       <section className="container-grid">
-        {books.map((genre) => (
-          // <Link to={`/view/games/${genre.id}`} key={genre.id}>
+        {books.map((book) => (
+          // {/* <Link to={`/view/games/${genre.id}`} key={genre.id}> */}
           <BooksCard
             title={book.title}
             image={book.image_background}
             {...book}
           />
-          // </Link>
+          // {/* </Link> */}
         ))}
       </section>
     </div>
   )
 }
+export default Home
