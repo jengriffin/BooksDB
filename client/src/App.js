@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import AddForm from './pages/AddForm'
-
+import UpdateForm from './pages/UpdateForm'
 function App() {
   return (
     <div className="App">
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/AddForm" element={<AddForm />} />
+        <Route path="/UpdateForm" element={<UpdateForm />} />
       </Routes>
     </div>
   )

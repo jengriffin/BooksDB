@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const AddForm = () => {
+const UpdateForm = (props) => {
   const [book, setBook] = useState([])
   const initialState = {
     title: '',
@@ -14,7 +14,10 @@ const AddForm = () => {
   useEffect(() => {
     const getBooks = async () => {
       try {
-        let res = await axios.get('http://localhost:3001/api/books')
+        let res = await axios.get(
+          `http://localhost:3001/api/books/${props._id}`
+        )
+        console.log(props.id)
         setBook(res.data)
       } catch (err) {
         console.log(err)
@@ -35,7 +38,7 @@ const AddForm = () => {
   return (
     <div className="Form">
       <form onSubmit={handleSubmit}>
-        <h1>Add a Book!</h1>
+        <h1>Update a Book!</h1>
         <label htmlFor="title">Title:</label>
         <input
           type="text"
@@ -67,14 +70,7 @@ const AddForm = () => {
         ></textarea> */}
         <button type="submit">Send</button>
       </form>
-      {/* {book.map((book) => (
-        <div key={book._id}>
-          <h3>Title: {book.title}</h3>
-          <p>Author: {book.author}</p>
-          <p>Image: {book.image}</p>
-        </div>
-      ))} */}
     </div>
   )
 }
-export default AddForm
+export default UpdateForm
