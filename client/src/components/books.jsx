@@ -13,10 +13,7 @@ console.log(props._id)
 
 
 
-const updateBook=async()=>{
-  await axios.updateBook(`http://localhost:3001/api/books/${props._id}`)
-  
-}
+
 
 
   return (
@@ -31,7 +28,7 @@ const updateBook=async()=>{
       {props.author}
     </div>
     <button onClick={deleteBook}>Delete</button>
-    {/* <button onClick={updateBook}>Update</button> */}
+    
     <h5>
         <Link to={`./UpdateForm/${props._id}`}>Update a book!</Link>
       </h5>
