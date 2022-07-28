@@ -31,8 +31,9 @@ const updateBook=async()=>{
       {props.author}
     </div>
     <button onClick={deleteBook}>Delete</button>
+    {/* <button onClick={updateBook}>Update</button> */}
     <h5>
-        <Link to={'./UpdateForm'}>Update a book!</Link>
+        <Link to={`./UpdateForm/${props._id}`}>Update a book!</Link>
       </h5>
   </div>
     

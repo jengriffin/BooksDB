@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import BooksCard from '../components/Books'
+import { useParams } from 'react-router-dom'
 const UpdateForm = (props) => {
+  let { id } = useParams()
   const [book, setBook] = useState([])
   const initialState = {
     title: '',
@@ -12,18 +14,16 @@ const UpdateForm = (props) => {
   const [formState, setFormState] = useState(initialState)
 
   useEffect(() => {
-    const getBooks = async () => {
+    const getBook = async () => {
       try {
-        let res = await axios.get(
-          `http://localhost:3001/api/books/${props._id}`
-        )
-        console.log(props.id)
+        let res = await axios.put(`http://localhost:3001/api/books/${id}`)
+        console.log(res)
         setBook(res.data)
       } catch (err) {
         console.log(err)
       }
     }
-    getBooks()
+    getBook()
   }, [])
 
   const handleChange = (event) => {
@@ -31,7 +31,10 @@ const UpdateForm = (props) => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let res = await axios.post('http://localhost:3001/api/books', formState)
+    let res = await axios.put(
+      `http://localhost:3001/api/books/${id}`,
+      formState
+    )
     console.log(res)
     setFormState(initialState)
   }
@@ -68,7 +71,7 @@ const UpdateForm = (props) => {
           onChange={handleChange}
           value={formState.desription}
         ></textarea> */}
-        <button type="submit">Send</button>
+        <button type="submit">Update!</button>
       </form>
     </div>
   )
