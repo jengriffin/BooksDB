@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import BooksCard from '../components/books'
+import BooksCard from '../components/Books'
 import AddForm from './AddForm'
 const Home = () => {
   const [books, setBooks] = useState([])

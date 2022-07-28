@@ -1,7 +1,20 @@
+import axios from "axios"
+//import { useParams } from "react-router-dom"
+
 const BooksCard = (props) => {
 
+  //let{id}= useParams()
+console.log(props._id)
+  const deleteBook=async()=>{
+
+
+  await axios.delete(`http://localhost:3001/api/books/${props._id}`)
+  console.log('pew!pew!')
+}
+
+
   return (
-    <div className="card" onClick={props.onClick}>
+    <div className="card" >
     <div className="img-wrapper">
       <img src={props.image} alt="Title" />
     </div>
@@ -11,6 +24,7 @@ const BooksCard = (props) => {
     <div>
       {props.author}
     </div>
+    <button onClick={deleteBook}>Delete</button>
   </div>
     
   )

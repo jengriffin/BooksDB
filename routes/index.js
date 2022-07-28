@@ -2,8 +2,6 @@ const { Router } = require('express')
 const controllers = require('../controllers')
 const router = Router()
 
-router.get('/', (req, res) => res.send('This is root!'))
-
 router.get('/books', controllers.getAllBooks)
 router.post('/books', controllers.createBook)
 router.get('/books/:id', controllers.getBookId)
