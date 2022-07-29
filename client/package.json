@@ -13,10 +13,6 @@
     "web-vitals": "^2.1.4"
   },
   "proxy": "http://localhost:3001",
-  "engines": {
-    "node": ">=15.0.0",
-    "npm": "<=5.0.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
