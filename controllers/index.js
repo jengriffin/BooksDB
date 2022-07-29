@@ -93,6 +93,18 @@ const updateAuthor = async (req, res) => {
   }
 }
 
+const createAuthor = async (req, res) => {
+  try {
+    const author = await new Author(req.body)
+    await author.save()
+    return res.status(201).json({
+      author
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 const deleteAuthor = async (req, res) => {
   try {
     const { id } = req.params
@@ -114,5 +126,6 @@ module.exports = {
   deleteBook,
   getAuthorId,
   updateAuthor,
+  createAuthor,
   deleteAuthor
 }
