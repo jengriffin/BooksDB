@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React from 'react'
-import useParams from 'react-router-dom'
 import { useState, useEffect } from 'react'
-
+import { useParams } from 'react-router-dom'
 const AuthorDetails = () => {
   let { authorId } = useParams()
 
@@ -14,7 +13,6 @@ const AuthorDetails = () => {
         `http://localhost:3001/api/authors/${authorId}`
       )
       console.log(res)
-      setAuthorDetails(AuthorDetails.res)
     }
     getAuthorDetails()
   }, [])
