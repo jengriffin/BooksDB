@@ -10,6 +10,10 @@
     "build": "cd client && rm -rf build && npm install && npm run build",
     "proxy": "http://localhost:3001"
   },
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": "<=5.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jengriffin/BooksDB.git"
