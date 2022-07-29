@@ -12,7 +12,16 @@ a:hover {
   text-decoration: underline;
 }
 
-
+button{
+  border-radius: 12px;
+  background-color: #F5F5DC
+  ;
+  border: 2px solid #8B4411;
+}
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #84ff9f;
+}
 
 .App-logo {
   height: 40vmin;
