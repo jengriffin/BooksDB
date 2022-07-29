@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+a:visited{
+  color:#ff7335;
+  justify-content:center;
+  text-decoration: none;
+}
+a:hover {
+  color: 	#ff5994;
+  text-decoration: underline;
+}
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
