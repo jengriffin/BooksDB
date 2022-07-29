@@ -21,11 +21,13 @@ const AuthorDetails = () => {
   }, [])
 
   return (
-    <section>
-      {authors.map((author) => (
-        <Author name={author.name} books={author.books} {...author} />
-      ))}
-    </section>
+    <div>
+      <section>
+        {authors.map((author) => (
+          <Author name={author.name} books={author.books} {...author} />
+        ))}
+      </section>
+    </div>
   )
 }
 export default AuthorDetails
