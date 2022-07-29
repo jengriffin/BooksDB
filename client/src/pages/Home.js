@@ -4,6 +4,7 @@ import axios from 'axios'
 import BooksCard from '../components/Books'
 //import AddForm from './AddForm'
 import Author from '../components/Author'
+
 const Home = () => {
   const [books, setBooks] = useState([])
 
@@ -28,13 +29,13 @@ const Home = () => {
       </h2>
       <section className="container-grid">
         {books.map((book) => (
-          <Link to={`./AuthorDetails/${book._id}`}>
-            <BooksCard
-              title={book.title}
-              image={book.image_background}
-              {...book}
-            />
-          </Link>
+          // <Link to={`./AuthorDetails/${book._id}`}>
+          <BooksCard
+            title={book.title}
+            image={book.image_background}
+            {...book}
+          />
+          //</Link>
         ))}
       </section>
     </div>
