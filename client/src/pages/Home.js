@@ -27,13 +27,11 @@ const Home = () => {
       </h2>
       <section className="container-grid">
         {books.map((book) => (
-          // <Link to={`./AuthorDetails/${book._id}`}>
           <BooksCard
             title={book.title}
             image={book.image_background}
             {...book}
           />
-          //</Link>
         ))}
       </section>
     </div>

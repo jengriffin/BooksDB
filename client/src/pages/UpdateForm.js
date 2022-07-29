@@ -63,14 +63,7 @@ const UpdateForm = (props) => {
           onChange={handleChange}
           value={formState.image}
         />
-        {/* <label htmlFor="desription"></label>
-        <textarea
-          id="message"
-          cols="30"
-          rows="10"
-          onChange={handleChange}
-          value={formState.desription}
-        ></textarea> */}
+
         <button type="submit">Update!</button>
       </form>
     </div>
