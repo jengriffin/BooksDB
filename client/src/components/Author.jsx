@@ -1,10 +1,10 @@
 import axios from 'axios'
 const Author = (props) => {
 
-  const getAuthor=async()=>{
-    await axios.get(`http://localhost:3001/api/authors/${props._id}`)
+  // const getAuthor=async()=>{
+  //   await axios.get(`http://localhost:3001/api/authors/${props._id}`)
     
-  }
+  // }
  
   return (
     <div className="card">
